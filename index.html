@@ -1,214 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohammadhaghnazar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Site</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #2c1b12, #8a4b30);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Fade-in animation */
-    body * {
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    .profile-pic {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-    .profile-pic:hover {
-      transform: rotate(5deg) scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 200, 150, 0.8);
-    }
-    .profile-pic img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    h1 {
-      margin: 0.5rem 0 1.5rem;
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .icon-links {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .icon-links a {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 0.7rem;
-      border-radius: 15px;
+      background: #0f0f0f;
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    .icon-links a:hover {
-      transform: translateY(-6px) scale(1.05);
-      background: rgba(255,255,255,0.2);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-    }
-    .icon-links img {
-      width: 48px;
-      height: 48px;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
-    .tagline {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      margin-top: 1rem;
-      font-weight: 400;
-    }
-
-    .random-text {
-      margin-top: 2rem;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      font-size: 1rem;
-      color: #fff;
+    #randomText {
+      font-size: 20px;
       text-align: center;
-      max-width: 420px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      border-left: 3px solid #ffcc99;
-      min-height: 50px;
+      white-space: pre-line;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff005e, #ffa500, #00ffcc, #00aaff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 400% 400%;
+      animation: gradientMove 8s ease infinite;
     }
 
-    /* Typing effect */
-    .typing {
-      display: inline-block;
-      border-right: 2px solid #fff;
-      animation: blink 0.7s steps(1) infinite;
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-    /* --- Glow پشت پروفایل --- */
-.profile-pic img {
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6); /* طلایی ملایم */
-  border-radius: 50%;
-  transition: box-shadow 0.4s ease;
-}
-.profile-pic img:hover {
-  box-shadow: 0 0 45px rgba(255, 215, 0, 0.9);
-}
-
-/* --- افکت رنگی روی اسم --- */
-h1 {
-  font-size: 1.7rem;
-  background: linear-gradient(90deg, #ff7eb3, #ff758c, #ff7eb3);
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 4s linear infinite;
-}
-@keyframes shine {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-/* --- آیکون‌ها یکی یکی بیان بالا --- */
-.icon-links a {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.6s ease forwards;
-}
-.icon-links a:nth-child(1) { animation-delay: 0.3s; }
-.icon-links a:nth-child(2) { animation-delay: 0.6s; }
-.icon-links a:nth-child(3) { animation-delay: 0.9s; }
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
   </style>
 </head>
 <body>
-  <div class="profile-pic">
-    <img src="IMG_20250531_193238_814.webp" alt="Profile" />
-  </div>
-  <h3>Mohammadhaghnazar</h3>
-  <div class="icon-links">
-    <a href="https://www.instagram.com/mohammad_hr20?igsh=MWVtMnJyYjMzaHI5aQ==" target="_blank">
-      <img src="https://img.icons8.com/color/96/instagram-new.png" alt="Instagram" />
-    </a>
-    <a href="tel:+989052151417">
-      <img src="https://img.icons8.com/color/96/phone.png" alt="Phone" />
-    </a>
-    <a href="https://t.me/mohammad_20_11" target="_blank">
-      <img src="https://img.icons8.com/color/96/telegram-app.png" alt="Telegram" />
-    </a>
-  </div>
-  <div class="tagline">Programming student 👨🏻‍💻</div>
-  <div id="random-text" class="random-text"><span id="typing"></span></div>
 
-<script>
-  const texts = [
-    "فالوش کن، ضرر نمی‌کنی 😏",
-    "اینجا قراره یه داستان شروع شه 📖💫",
-    "اگه دیدی، یعنی باید آشنا شیم 😌",
-    "سلام قشنگ‌ترین اتفاق این روزا! 🌈",
-    "من دنبال خاص‌ها می‌گردم، تو چطور؟ 😎",
-    "باور کن جذاب‌تر از این لینک نداریم 😂",
-    "اگه خندیدی، یه قدم نزدیک‌تری 😁",
-    "لینک باز شد، حالا نوبت یه فالوئه 📱",
-    "قشنگ‌ترین لینک امروزه، خودشه ✨",
-    "اگه تو 7خطی  من خوده مخابراتم:)😂️",  
-   "اگه مخدر بودی، باهات اُور دوز میکردم.️",
-   "من برا همه فاز مخالف میزنم",
-   "ولی تو هرچی بگی چشم 😉️",
-   "« تو فقط ردیف باش قافیه هایش با من » 🌾",
-   "برای چشم تو باید کتاب و دیوان گفت نمی شود که تو یک بیت مختصر باشی🫠",
-   "گفت مشروب نخور میری جهنم؛ گفتم به سلامتی جهنمی که آدماش مست ان نه گناهکار🍾",
-   "فاز نمی‌دم، خودِ نیروگاه هسته‌ای‌ام ⚡️",
-   "من آینده نیستم، آینده خودش باید بیاد منو بگیره ⏳😏",
-   "اگه زندگیم فیلمه، من کارگردانم، تو فقط پاپ‌کُرن بیار 🍿😎",
-   "من مثل وای‌فای‌ام، هرجا برم همه می‌خوان کانکت شن 📡",
-   "یه وقت فکر نکنی زیادی خفنی، منم تو این سیاره دارم نفس می‌کشم 🌍",
-   "زندگی کوتاهه، منم بلدم میان‌بر بزنم 🏃‍♂️💨",
-  
-  ];
+  <div id="randomText"></div>
 
-  const typingEl = document.getElementById("typing");
-  const randText = texts[Math.floor(Math.random() * texts.length)];
-  let index = 0;
+  <script>
+    const texts = [
+  "فالوش کن، ضرر نمی‌کنی 😏",
+  "اینجا قراره یه داستان شروع شه 📖💫",
+  "اگه دیدی، یعنی باید آشنا شیم 😌",
+  "سلام قشنگ‌ترین اتفاق این روزا! 🌈",
+  "من دنبال خاص‌ها می‌گردم، تو چطور؟ 😎",
+  "باور کن جذاب‌تر از این لینک نداریم 😂",
+  "اگه خندیدی، یه قدم نزدیک‌تری 😁",
+  "لینک باز شد، حالا نوبت یه فالوئه 📱",
+  "قشنگ‌ترین لینک امروزه، خودشه ✨",
+  "اگه تو 7خطی  من خوده مخابراتم:)😂️",  
+  "اگه مخدر بودی، باهات اُور دوز میکردم.️",
+  "من برا همه فاز مخالف میزنم",
+  "ولی تو هرچی بگی چشم 😉️",
+  "« تو فقط ردیف باش قافیه هایش با من » 🌾",
+  "برای چشم تو باید کتاب و دیوان گفت نمی شود که تو یک بیت مختصر باشی🫠",
+  "گفت مشروب نخور میری جهنم؛ گفتم به سلامتی جهنمی که آدماش مست ان نه گناهکار🍾",
+  "فاز نمی‌دم، خودِ نیروگاه هسته‌ای‌ام ⚡️",
+  "من آینده نیستم، آینده خودش باید بیاد منو بگیره ⏳😏",
+  "اگه زندگیم فیلمه، من کارگردانم، تو فقط پاپ‌کُرن بیار 🍿😎",
+  "من مثل وای‌فای‌ام، هرجا برم همه می‌خوان کانکت شن 📡",
+  "یه وقت فکر نکنی زیادی خفنی، منم تو این سیاره دارم نفس می‌کشم 🌍",
+  "زندگی کوتاهه، منم بلدم میان‌بر بزنم 🏃‍♂️💨",
+];
 
-  function type() {
-    if (index < randText.length) {
-      typingEl.textContent += randText.charAt(index);
-      index++;
-      setTimeout(type, 70);
+    let currentIndex = 0;
+    const textElement = document.getElementById("randomText");
+
+    function typeText(text, callback) {
+      textElement.textContent = "";
+      let i = 0;
+      const typing = setInterval(() => {
+        textElement.textContent += text[i];
+        i++;
+        if (i === text.length) {
+          clearInterval(typing);
+          if (callback) callback();
+        }
+      }, 50);
     }
-  }
-  type();
-</script>
+
+    function showNextText() {
+      typeText(texts[currentIndex], () => {
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % texts.length;
+          showNextText();
+        }, 5000); // هر متن ۵ ثانیه میمونه
+      });
+    }
+
+    showNextText();
+  </script>
 </body>
 </html>
