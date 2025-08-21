@@ -25,19 +25,13 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-size: 400% 400%;
-      animation: gradientMove 8s ease infinite, neonGlow 1.5s ease-in-out infinite alternate;
-      text-shadow: 0 0 10px rgba(255,0,94,0.8), 0 0 20px rgba(0,255,204,0.7);
+      animation: gradientMove 8s ease infinite;
     }
 
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
-    }
-
-    @keyframes neonGlow {
-      from { text-shadow: 0 0 5px #ff005e, 0 0 10px #ff00ff, 0 0 20px #ff00ff; }
-      to { text-shadow: 0 0 20px #00ffcc, 0 0 40px #00aaff, 0 0 60px #ffa500; }
     }
   </style>
 </head>
@@ -47,10 +41,6 @@
 
   <script>
     const texts = [
-      "اگه یه روز از سایت من رد شدی، بدون اینجا همیشه یه چیز خفن در جریانه 😉",
-      "اینو اسکن کردی یعنی تو هم دنبال فان و چیزای خاصی 😎",
-      "زندگی کوتاهه، پس کارت و اسکن کن و حالشو ببر 😂",
-      "اینجا قراره یه چیز متفاوت ببینی، پس آماده باش 🚀",
       "اگه تو 7خطی  من خوده مخابراتم:)😂️",
       "اگه مخدر بودی، باهات اُور دوز میکردم.️",
       "من برا همه فاز مخالف میزنم ولی تو هرچی بگی چشم 😉️",
