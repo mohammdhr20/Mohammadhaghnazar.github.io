@@ -1,152 +1,563 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-  <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-  <title>Mohammadhaghnazar</title>  
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">  
-  <style>  
-    body {  
-      margin: 0;  
-      font-family: 'Poppins', sans-serif;  
-      background: linear-gradient(135deg, #2c1b12, #8a4b30);  
-      color: #fff;  
-      display: flex;  
-      flex-direction: column;  
-      align-items: center;  
-      padding: 2rem;  
-      min-height: 100vh;  
-      overflow-x: hidden;  
-    }  /* Fade-in animation */  
-body * {  
-  opacity: 0;  
-  animation: fadeIn 1s ease forwards;  
-}  
-@keyframes fadeIn {  
-  to { opacity: 1; }  
-}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080a10" />
+  <meta name="description" content="The personal page of Mohammadhaghnazar — programming student, curious mind, work in progress." />
+  <title>Mohammadhaghnazar — Personal Space</title>
 
-.profile-pic {  
-  width: 160px;  
-  height: 160px;  
-  border-radius: 50%;  
-  overflow: hidden;  
-  margin-bottom: 1rem;  
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);  
-  transition: transform 0.5s ease, box-shadow 0.5s ease;  
-}  
-.profile-pic:hover {  
-  transform: rotate(5deg) scale(1.05);  
-  box-shadow: 0 0 25px rgba(255, 200, 150, 0.8);  
-}  
-.profile-pic img {  
-  width: 100%;  
-  height: 100%;  
-  object-fit: cover;  
-}  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-h1 {  
-  margin: 0.5rem 0 1.5rem;  
-  font-size: 2rem;  
-  font-weight: 600;  
-  letter-spacing: 1px;  
-}  
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080a10;
+      --panel: rgba(17, 20, 29, 0.88);
+      --panel-soft: rgba(255, 255, 255, 0.035);
+      --text: #f4f3ef;
+      --muted: #969ba8;
+      --muted-soft: #6e7482;
+      --gold: #d7bd8b;
+      --gold-light: #f2dfb6;
+      --mint: #9fe4d6;
+      --line: rgba(255, 255, 255, 0.09);
+      --radius: 30px;
+    }
 
-.icon-links {  
-  display: flex;  
-  gap: 1.5rem;  
-  margin-bottom: 1.5rem;  
-}  
-.icon-links a {  
-  background: rgba(255, 255, 255, 0.1);  
-  padding: 0.7rem;  
-  border-radius: 15px;  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
-  transition: all 0.3s ease;  
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
-}  
-.icon-links a:hover {  
-  transform: translateY(-6px) scale(1.05);  
-  background: rgba(255,255,255,0.2);  
-  box-shadow: 0 6px 15px rgba(0,0,0,0.5);  
-}  
-.icon-links img {  
-  width: 48px;  
-  height: 48px;  
-}  
+    * { box-sizing: border-box; }
 
-.tagline {  
-  font-size: 1.2rem;  
-  opacity: 0.9;  
-  margin-top: 1rem;  
-  font-weight: 400;  
-}  
+    html { min-height: 100%; }
 
-.random-text {  
-  margin-top: 2rem;  
-  background: rgba(255, 255, 255, 0.15);  
-  padding: 1rem 1.5rem;  
-  border-radius: 12px;  
-  font-size: 1rem;  
-  color: #fff;  
-  text-align: center;  
-  max-width: 420px;  
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);  
-  border-left: 3px solid #ffcc99;  
-  min-height: 50px;  
-}  
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+      padding: clamp(18px, 4vw, 48px);
+      background:
+        radial-gradient(ellipse at 12% 14%, rgba(67, 97, 112, 0.17), transparent 34%),
+        radial-gradient(ellipse at 87% 82%, rgba(148, 112, 65, 0.13), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: 'Manrope', 'Vazirmatn', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-/* Typing effect */  
-.typing {  
-  display: inline-block;  
-  border-right: 2px solid #fff;  
-  animation: blink 0.7s steps(1) infinite;  
-}  
-@keyframes blink {  
-  50% { border-color: transparent; }  
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 54px 54px;
+      opacity: 0.36;
+      mask-image: radial-gradient(ellipse at center, black 10%, transparent 78%);
+    }
 
-  </style>  
-</head>  
-<body>  
-  <div class="profile-pic">  
-    <img src="IMG_20250929_095824_767.webp" alt="Profile" />  
-  </div>  
-  <h3>Mohammadhaghnazar</h3>  
-  <div class="icon-links">  
-    <a href="https://www.instagram.com/mohammad_hr20?igsh=MWVtMnJyYjMzaHI5aQ==" target="_blank">  
-      <img src="https://img.icons8.com/color/96/instagram-new.png" alt="Instagram" />  
-    </a>  
-    <a href="tel:+989052151417">  
-      <img src="https://img.icons8.com/color/96/phone.png" alt="Phone" />  
-    </a>  
-    <a href="https://t.me/mohammad_20_11" target="_blank">  
-      <img src="https://img.icons8.com/color/96/telegram-app.png" alt="Telegram" />  
-    </a>  
-  </div>  
-  <div class="tagline">Programming student 👨🏻‍💻</div>  
-  <div id="random-text" class="random-text"><span id="typing"></span></div>  <script>  
-  const texts = [  
-       "فالوش کن، ضرر نمی‌کنی 😏",  
-  "لینک باز شد، حالا نوبت یه فالوئه 📱", 
-  "گفت مشروب نخور میری جهنم؛ گفتم به سلامتی جهنمی که آدماش مست ان نه گناهکار🍾",  
-  "من آینده نیستم، آینده خودش باید بیاد منو بگیره ⏳😏",  
-  "اگه زندگیم فیلمه، من کارگردانم، تو فقط پاپ‌کُرن بیار 🍿😎",  
-  "زندگی کوتاهه، منم بلدم میان‌بر بزنم 🏃‍♂️💨",  
-  ];  
-  
-  const typingEl = document.getElementById("typing");  
-  const randText = texts[Math.floor(Math.random() * texts.length)];  
-  let index = 0;  
-  
-  function type() {  
-    if (index < randText.length) {  
-      typingEl.textContent += randText.charAt(index);  
-      index++;  
-      setTimeout(type, 70);  
-    }  
-  }  
-  type();  
-</script>  </body>  
+    .ambient {
+      position: fixed;
+      z-index: 0;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      filter: blur(85px);
+      opacity: 0.12;
+      pointer-events: none;
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+
+    .ambient-one { background: #8bcbbb; top: -190px; right: 8%; }
+    .ambient-two { background: #cda96f; bottom: -220px; left: 6%; animation-delay: -5s; }
+
+    .profile-card {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 650px);
+      padding: clamp(25px, 5.5vw, 48px);
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid rgba(255, 255, 255, 0.105);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(21, 24, 34, 0.94), rgba(11, 13, 20, 0.96));
+      box-shadow: 0 32px 100px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255,255,255,0.045);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      animation: card-enter 850ms cubic-bezier(.2,.75,.2,1) both;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      z-index: -1;
+      background: linear-gradient(90deg, transparent, rgba(215,189,139,0.8), rgba(159,228,214,0.55), transparent);
+    }
+
+    .profile-card::after {
+      content: "MHN";
+      position: absolute;
+      z-index: -1;
+      right: -10px;
+      bottom: 30px;
+      color: rgba(255,255,255,0.018);
+      font-size: clamp(5rem, 17vw, 9rem);
+      font-weight: 800;
+      letter-spacing: -0.12em;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .topline, .bottomline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand-mark, .eyebrow, .status-pill, .footer-note {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark { color: #b4b7c0; }
+    .brand-mark span { color: var(--gold); }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 12px;
+      border: 1px solid rgba(159,228,214,0.16);
+      border-radius: 999px;
+      background: rgba(159,228,214,0.045);
+      color: #bdc9c9;
+      letter-spacing: 0.13em;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 12px rgba(159,228,214,0.85);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: clamp(35px, 6vw, 54px);
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 148px;
+      height: 148px;
+      margin-bottom: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: conic-gradient(from 205deg, rgba(215,189,139,.24), var(--gold-light), rgba(159,228,214,.85), rgba(215,189,139,.20), var(--gold));
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 14px 48px rgba(0,0,0,.38), 0 0 38px rgba(215,189,139,.08);
+      transition: transform 450ms ease, box-shadow 450ms ease;
+    }
+
+    .avatar-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(215,189,139,0.14);
+      border-radius: inherit;
+    }
+
+    .avatar-wrap::after {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      right: 10px;
+      bottom: 13px;
+      border: 3px solid #11141d;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 15px rgba(159,228,214,.65);
+    }
+
+    .avatar-wrap:hover {
+      transform: translateY(-4px) rotate(2deg);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 20px 58px rgba(0,0,0,.44), 0 0 46px rgba(215,189,139,.14);
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      overflow: hidden;
+      border: 5px solid #11141d;
+      border-radius: 50%;
+      background: #171a22;
+    }
+
+    .profile-pic img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 13px;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+    }
+
+    h1 {
+      max-width: 100%;
+      margin: 0;
+      color: #f7f5ef;
+      font-size: clamp(1.7rem, 5.7vw, 2.65rem);
+      font-weight: 800;
+      letter-spacing: -0.065em;
+      line-height: 1.2;
+      overflow-wrap: anywhere;
+    }
+
+    .role-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 16px;
+      color: #d3d5d9;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.025em;
+    }
+
+    .role-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .intro {
+      max-width: 390px;
+      margin: 13px 0 0;
+      color: var(--muted);
+      font-size: 0.91rem;
+      line-height: 1.8;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin: 32px 0 21px;
+      color: var(--muted-soft);
+      font-size: 0.61rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .divider::before, .divider::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, var(--line));
+    }
+
+    .divider::after { transform: rotate(180deg); }
+
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 11px;
+    }
+
+    .social-link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 0;
+      padding: 15px 12px;
+      color: #e8e8e7;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.075);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.032);
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .social-link:hover, .social-link:focus-visible {
+      outline: none;
+      transform: translateY(-4px);
+      border-color: rgba(215,189,139,0.36);
+      background: rgba(215,189,139,0.075);
+      box-shadow: 0 10px 28px rgba(0,0,0,.22);
+    }
+
+    .social-link img {
+      display: block;
+      flex: 0 0 auto;
+      width: 27px;
+      height: 27px;
+      object-fit: contain;
+      transition: transform 220ms ease;
+    }
+
+    .social-link:hover img { transform: scale(1.08); }
+
+    .social-link span {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .quote-card {
+      position: relative;
+      margin-top: 27px;
+      padding: 21px 22px 23px;
+      border: 1px solid rgba(215,189,139,0.13);
+      border-radius: 19px;
+      background: linear-gradient(125deg, rgba(215,189,139,0.07), rgba(255,255,255,0.018) 62%);
+      overflow: hidden;
+    }
+
+    .quote-card::before {
+      content: "“";
+      position: absolute;
+      top: 1px;
+      left: 14px;
+      color: rgba(215,189,139,0.16);
+      font-family: Georgia, serif;
+      font-size: 4.5rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .quote-label {
+      margin: 0 0 14px;
+      color: #b8a57f;
+      font-size: 0.61rem;
+      font-weight: 800;
+      letter-spacing: 0.17em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .quote-text {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      color: #f0eee8;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: clamp(0.9rem, 2.7vw, 1.02rem);
+      font-weight: 500;
+      line-height: 2;
+      text-align: center;
+      direction: rtl;
+      unicode-bidi: plaintext;
+    }
+
+    .typing-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.15em;
+      margin-inline-start: 5px;
+      vertical-align: -0.2em;
+      background: var(--gold);
+      animation: blink 850ms steps(1, end) infinite;
+    }
+
+    .bottomline {
+      margin-top: 25px;
+      padding-top: 19px;
+      border-top: 1px solid rgba(255,255,255,0.065);
+    }
+
+    .footer-note {
+      color: #777e8b;
+      font-size: 0.56rem;
+      letter-spacing: 0.13em;
+      line-height: 1.7;
+    }
+
+    .footer-symbol {
+      color: var(--gold);
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes card-enter {
+      from { opacity: 0; transform: translateY(18px) scale(.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes drift {
+      from { transform: translate3d(-15px, -8px, 0) scale(.95); }
+      to { transform: translate3d(24px, 22px, 0) scale(1.08); }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 14px; }
+      .profile-card { padding: 24px 19px 20px; border-radius: 25px; }
+      .brand-mark, .status-pill { font-size: 0.54rem; }
+      .status-pill { padding: 8px 9px; gap: 7px; }
+      .avatar-wrap { width: 132px; height: 132px; margin-bottom: 23px; }
+      .profile-pic { width: 124px; height: 124px; }
+      .role-line { font-size: 0.75rem; }
+      .intro { font-size: 0.84rem; }
+      .social-links { gap: 7px; }
+      .social-link { flex-direction: column; gap: 7px; padding: 12px 5px; border-radius: 14px; }
+      .social-link img { width: 25px; height: 25px; }
+      .social-link span { font-size: 0.7rem; }
+      .quote-card { margin-top: 22px; padding: 19px 13px 18px; }
+      .quote-text { min-height: 76px; line-height: 1.9; }
+      .footer-note { font-size: 0.49rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <main class="profile-card">
+    <div class="topline">
+      <div class="brand-mark"><span>MHN</span> &nbsp;/&nbsp; PERSONAL SPACE</div>
+      <div class="status-pill"><span class="status-dot" aria-hidden="true"></span> IN PROGRESS</div>
+    </div>
+
+    <section class="hero" aria-labelledby="profile-name">
+      <div class="avatar-wrap">
+        <div class="profile-pic">
+          <img src="IMG_20250929_095824_767.webp" alt="Profile photo of Mohammadhaghnazar" />
+        </div>
+      </div>
+
+      <p class="eyebrow">A LITTLE ABOUT ME</p>
+      <h1 id="profile-name">Mohammadhaghnazar</h1>
+      <div class="role-line">
+        <span>Programming Student</span>
+        <span class="role-dot" aria-hidden="true"></span>
+        <span>Future Developer</span>
+      </div>
+      <p class="intro">Curious by nature. Learning with purpose, building one idea at a time.</p>
+    </section>
+
+    <div class="divider">Find me around</div>
+
+    <nav class="social-links" aria-label="Social and contact links">
+      <a class="social-link" href="https://www.instagram.com/mohammad_hr20?igsh=MWVtMnJyYjMzaHI5aQ==" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram profile">
+        <img src="https://img.icons8.com/color/96/instagram-new.png" alt="" />
+        <span>Instagram</span>
+      </a>
+      <a class="social-link" href="tel:+989052151417" aria-label="Call Mohammad">
+        <img src="https://img.icons8.com/color/96/phone.png" alt="" />
+        <span>Call me</span>
+      </a>
+      <a class="social-link" href="https://t.me/mohammad_20_11" target="_blank" rel="noopener noreferrer" aria-label="Open Telegram profile">
+        <img src="https://img.icons8.com/color/96/telegram-app.png" alt="" />
+        <span>Telegram</span>
+      </a>
+    </nav>
+
+    <section class="quote-card" aria-label="Random personal quote">
+      <p class="quote-label">A thought, randomly picked</p>
+      <p class="quote-text"><span id="typing">کمتر ادعا، بیشتر یادگیری؛ باقی ماجرا با نتیجه.</span><span class="typing-cursor" aria-hidden="true"></span></p>
+    </section>
+
+    <footer class="bottomline">
+      <span class="footer-note">BUILT ON CURIOSITY · REFINED WITH TIME</span>
+      <span class="footer-symbol" aria-hidden="true">✳</span>
+    </footer>
+  </main>
+
+  <script>
+    // Original Persian lines: short, confident, and a little playful.
+    const texts = [
+      "فعلاً دانشجو؛ در حال ساختن نسخه‌ی جدی‌ترِ خودم.",
+      "کد می‌زنم، یاد می‌گیرم و برای معمولی موندن برنامه‌ای ندارم.",
+      "ذهنم دنبال راه‌حله؛ سلیقه‌م دنبال جزئیات.",
+      "آینده رو حدس نمی‌زنم؛ دارم مهارت‌های لازم رو می‌سازم.",
+      "کمتر ادعا، بیشتر یادگیری؛ باقی ماجرا با نتیجه.",
+      "استایل ساده، ذهن کنجکاو، هدف مشخص.",
+      "نسخه‌ی بهتر من هنوز در حال توسعه‌ست.",
+      "با منطق کد می‌زنم؛ با سلیقه انتخاب می‌کنم.",
+      "ترجیح می‌دم کیفیت کارم معرفم باشه، نه تعداد حرف‌هام.",
+      "برای خاص بودن لازم نیست شلوغ باشی؛ کافیه دقیق باشی."
+    ];
+
+    const typingEl = document.getElementById("typing");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let textIndex = Math.floor(Math.random() * texts.length);
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeLoop() {
+      const currentText = texts[textIndex];
+
+      if (deleting) {
+        charIndex--;
+        typingEl.textContent = currentText.slice(0, Math.max(0, charIndex));
+      } else {
+        charIndex++;
+        typingEl.textContent = currentText.slice(0, charIndex);
+      }
+
+      let delay = deleting ? 19 : 43;
+
+      if (!deleting && charIndex >= currentText.length) {
+        deleting = true;
+        delay = 2350;
+      } else if (deleting && charIndex <= 0) {
+        deleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        delay = 360;
+      }
+
+      window.setTimeout(typeLoop, delay);
+    }
+
+    if (reduceMotion) {
+      typingEl.textContent = texts[textIndex];
+    } else {
+      typingEl.textContent = "";
+      window.setTimeout(typeLoop, 450);
+    }
+  </script>
+</body>
 </html>
